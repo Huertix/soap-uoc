@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration name="local" status="info">
+    <appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%level{length=1} %d{yyMMdd HH:mm:ss.SSS} [%t] %c - %msg%n%ex"/>
+        </Console>
+    </appenders>
+
+    <loggers>
+        <logger name="huertix.uoc" level="debug" additivity="false">
+            <appender-ref ref="STDOUT"/>
+        </logger>
+
+        <root level="warn">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </loggers>
+</configuration>

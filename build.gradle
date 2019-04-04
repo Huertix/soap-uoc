@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+version ''
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    joobyVersion = '1.5.1'
+    jog4Version = '2.11.1'
+
+}
+
+dependencies {
+    implementation "org.jooby:jooby-netty:$joobyVersion"
+    implementation "org.apache.logging.log4j:log4j-slf4j18-impl:$jog4Version"
+}
