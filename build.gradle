@@ -4,7 +4,7 @@ plugins {
 }
 
 version ''
-
+mainClassName = "huertix.uoc.soap.server.SoapServer"
 sourceCompatibility = 1.8
 
 repositories {
@@ -12,12 +12,11 @@ repositories {
 }
 
 ext {
-    joobyVersion = '1.5.1'
-    jog4Version = '2.11.1'
+    junitVersion = '4.12'
 
 }
 
 dependencies {
-    implementation "org.jooby:jooby-netty:$joobyVersion"
-    implementation "org.apache.logging.log4j:log4j-slf4j18-impl:$jog4Version"
+
+    testCompile "junit:junit:$junitVersion"
 }
