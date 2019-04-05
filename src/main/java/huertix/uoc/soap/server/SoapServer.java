@@ -10,13 +10,18 @@ import java.util.concurrent.Executors;
 
 public class SoapServer {
 
-    public static final String URI = "http://localhost:8000/shape";
+    public static final String HOSTNAME = "localhost";
+    public static final String SOAP_PATH = "shape";
 
     public static void main(String[] args) {
+
+        int serverPort = System.getenv("UDP_SERVER_PORT") == null ?
+                8000 : Integer.valueOf(System.getenv("UDP_SERVER_PORT"));
+
         ExecutorService es = Executors.newFixedThreadPool(5);
         Endpoint ep = Endpoint.create(new ShapeCalculatorImp());
         ep.setExecutor(es);
-        ep.publish(URI);
+        ep.publish(String.format("http://%s:%s/%s", HOSTNAME, serverPort, SOAP_PATH));
 
         System.out.println(
                 String.format("Web service status: %s ", ep.isPublished()));

@@ -14,7 +14,13 @@ public class ShapeCalculatorImp implements ShapeCalculator{
 
     @Override
     public double squarePyramidVolume(double side, double height) {
+
         double volume = (Math.pow(side, 2) * height) / 3;
+
+        System.out.println(
+                String.format("Requested Volume with side: %f and height: %f. Result: %f",
+                        side, height, volume));
+
         return volume;
     }
 
@@ -22,6 +28,11 @@ public class ShapeCalculatorImp implements ShapeCalculator{
     public double squarePyramidArea(double side, double height) {
         double apothem = getApothem(side, height);
         double area = side * ((2 * apothem) + side);
+
+        System.out.println(
+                String.format("Requested Area with side: %f and height: %f. Result: %f",
+                        side, height, area));
+
         return area;
     }
 }
