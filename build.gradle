@@ -11,12 +11,35 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main'
+        }
+    }
+    test {
+        java {
+            srcDirs = ["src/test"]
+        }
+    }
+}
+
+
+task (makeJar, dependsOn: 'classes', type: Jar) {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    from sourceSets.main.output
+    archivesBaseName = 'soapservice'
+    version = ''
+    manifest {
+        attributes ('Main-Class': mainClassName)
+    }
+    exclude 'META-INF/.RSA', 'META-INF/.SF','META-INF/*.DSA'
+}
+
 ext {
     junitVersion = '4.12'
-
 }
 
 dependencies {
-
     testCompile "junit:junit:$junitVersion"
 }
