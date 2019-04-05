@@ -14,7 +14,6 @@ public class ShapeCalculatorImp implements ShapeCalculator{
 
     @Override
     public double squarePyramidVolume(double side, double height) {
-
         double volume = (Math.pow(side, 2) * height) / 3;
 
         System.out.println(
